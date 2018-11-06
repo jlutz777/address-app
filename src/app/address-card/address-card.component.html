@@ -1,0 +1,8 @@
+<mat-card fxFlexFill fxLayout="column">
+  <mat-card-content fxFlexFill fxLayout="column" fxLayoutAlign="center center" class="address-card-content" (click)="edit(address.id)">
+      <span fxFlex="0 0 auto" class="address-card-line">{{address.first_name}} {{address.last_name}}</span>
+      <span fxFlex="0 0 auto" class="address-card-line">{{address.street_1}}</span>
+      <span fxFlex="0 0 auto" class="address-card-line">{{address.city}}, {{address.state}}</span>
+      <span fxFlex="0 0 auto" class="address-card-line">{{address.zip}}</span>
+  </mat-card-content>
+</mat-card>

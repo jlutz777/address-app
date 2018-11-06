@@ -1,0 +1,24 @@
+<div fxLayout="column" fxLayoutAlign="space-around center" fxFlexOffset="10px" fxLayoutGap="20px">
+  <div fxFlex="0 0 50px" fxLayout="column" class="search">
+      <mat-form-field fxFlexFill>
+          <mat-icon mdPrefix>search</mat-icon>
+          <input matInput placeholder="Contact name" (keyup)="filter($event.target.value)" />
+      </mat-form-field>
+  </div>
+  <div fxFlex="1 1 auto" fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign=" center">
+      <ng-container *ngIf="items$ | async as items; else empty">
+          <div *ngIf="items.length === 0">
+              <h4>(None Found)</h4>
+          </div>
+          <div fxFlex="0 0 auto" fxLayout="column" *ngFor="let item of items" class="address-card">
+              <app-address-card fxFlexFill fxLayout="column" [address]="item">
+              </app-address-card>
+          </div>
+      </ng-container>
+      <ng-template #empty>
+          <div>
+              <h4>(None Found)</h4>
+          </div>
+      </ng-template>
+  </div>
+</div>
